@@ -5,8 +5,9 @@ class SessionsController < ApplicationController
     @user = User.from_omniauth(request.env['omniauth.auth'])
     session[:user_id] = @user.id
     flash[:success] = "Welcome, #{@user.name}!"
-    rescue
+    rescue => error
       flash[:warning] = "There was an error while trying to authenticate you..."
+      p error.backtrace
     end
     redirect_back_or_default
   end

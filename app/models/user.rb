@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     user.location = auth_hash['info']['location']
     user.image_url = auth_hash['info']['image']
     user.url = auth_hash['info']['urls']['Twitter']
-    # assign_username
+    user.assign_username
     user.save!
     user
   end
@@ -14,12 +14,12 @@ class User < ActiveRecord::Base
 
   def assign_username(username=nil)
     username = username || concatenate_username(self.name)
-    return username unless User.find_by username: username
-    assign_username(username + rand(1000))
+    return self.username = username unless User.find_by username: username
+    assign_username(username + rand(1000).to_s)
   end
 
   def concatenate_username(username)
-    return username.sub /W/, ''
+    return username.downcase.sub /\W/, ''
   end
 
 end
