@@ -14,9 +14,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'react-rails'
 gem 'bootstrap-sass'
-gem 'omniauth-google'
+gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
-gem 'dotenv'
+gem 'dotenv-rails'
 
 
 

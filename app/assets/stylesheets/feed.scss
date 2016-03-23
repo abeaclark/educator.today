@@ -1,0 +1,17 @@
+.thumbnail {
+  overflow: auto !important;
+  position: relative;
+  padding: 10px;
+}
+
+.meta-bar {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.author-name {
+  position: absolute;
+  bottom: 10px;
+  left: 80px;
+}
