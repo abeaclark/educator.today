@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323044250) do
+ActiveRecord::Schema.define(version: 20160323210458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.string   "link"
+    t.string   "vanity_link"
+    t.string   "summary"
+    t.integer  "user_id"
+    t.integer  "upvotes"
+    t.integer  "score"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "provider",   null: false
@@ -23,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160323044250) do
     t.string   "location"
     t.string   "image_url"
     t.string   "url"
+    t.string   "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

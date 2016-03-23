@@ -14,10 +14,22 @@
     </div>
     <div id="navbar">
       <% if current_user %>
-        <ul class="nav navbar-nav pull-right">
-          <li><%= image_tag current_user.image_url, alt: current_user.name %></li>
-          <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
-        </ul>
+        <div class="nav navbar-nav pull-right">
+          <div class="dropdown">
+
+            <%= image_tag current_user.image_url, alt: current_user.name, class: 'avatar-small', id: 'avatar-dropdown', :"type" => 'button', :"data-toggle" => 'dropdown', :"aria-haspopup" => 'true', :'aria-expanded' => 'false' %>
+
+            <ul class="dropdown-menu" aria-labelledby="avatar-dropdown">
+              <li><%= link_to 'My Profile', 'users/me' %></li>
+              <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+            </ul>
+
+          </div>
+        </div>
+      <% else %>
+        <div class="nav navbar-nav pull-right">
+              <%= link_to 'Login', '/login' %>
+        </div>
       <% end %>
     </div>
   </div>

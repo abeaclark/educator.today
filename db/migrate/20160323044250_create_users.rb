@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :location
       t.string :image_url
       t.string :url
+      t.string :username
 
       # add_index :users, :provider
       # add_index :users, :uid

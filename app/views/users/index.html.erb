@@ -1,0 +1,21 @@
+<div class="page-header">
+  <h1>My Profile</h1>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <img src=<%= current_user.image_url %> >
+
+      <%= current_user.name %>
+
+  </div>
+</div>
+
+<div class="page-header">
+  <h1>My Posts</h1>
+</div>
+<div class="row">
+  <%5.times do %>
+    <%= render "/feed/post" %>
+  <% end %>
+</div>
+
