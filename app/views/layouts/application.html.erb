@@ -28,7 +28,9 @@
         </div>
       <% else %>
         <div class="nav navbar-nav pull-right">
-              <%= link_to 'Login', '/login' %>
+            <div class="btn success">
+              <%= link_to 'Login', '/login', html_options = {class: 'btn btn-primary'} %>
+            </div>
         </div>
       <% end %>
     </div>

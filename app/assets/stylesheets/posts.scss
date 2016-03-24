@@ -1,3 +1,34 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.thumbnail {
+  overflow: auto !important;
+  position: relative;
+  padding: 10px;
+}
+
+.meta-bar {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+}
+
+.author-name {
+  position: absolute;
+  bottom: 10px;
+  left: 80px;
+}
+
+.avatar-small {
+  height: 50px;
+  border: gray 2px solid;
+}
+
+.glyphicon-thumbs-up {
+  background-color: #f1f1f1;
+  border-radius: 100%;
+  padding: 10px;
+  font-size: 1.3em;
+}
+
+div.pagination {
+  width: 100%;
+  text-align: center;
+}

@@ -17,12 +17,14 @@ gem 'bootstrap-sass'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
-
+gem 'bootstrap-will_paginate'
+gem 'will_paginate'
 
 
 
 group :development, :test do
   gem 'byebug'
+  gem 'faker'
 end
 
 group :development do
