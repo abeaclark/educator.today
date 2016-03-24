@@ -7,6 +7,13 @@ class PostsController < ApplicationController
     @posts = Post.paginate(page: params[:page], per_page: 15).order('created_at DESC')
   end
 
+  def preview
+    @post = Post.new
+    render :'_form.html.erb', layout: false if request.xhr?
+
+  end
+
+
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -28,7 +35,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to '/', notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }

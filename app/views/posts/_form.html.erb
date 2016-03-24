@@ -11,27 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+
+<div class="col-xs-12">
+  <div id="new-post-form" class="thumbnail">
+    <img class="pull-right" src="http://placehold.it/250x250" alt="...">
+    <div class="caption caption-edit">
+      <h3 class="full-width" ><%= f.text_field :title, :placeholder => "Title", :class => "form-control" %></h3>
+      <p><%= text_area(:post, :summary, cols: 40, rows: 4, :placeholder => "Summary Text", :class => "form-control") %></p>
+
+      <p><small><em><%= f.text_field :link, :placeholder => "Vanity URL", :class => "form-control" %></em></small></p>
+    </div>
+  <%= f.submit "Post Link!", :class => "btn btn-success pull-left post-link" %>
   </div>
-  <div class="field">
-    <%= f.label :link %><br>
-    <%= f.text_field :link %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :upvotes %><br>
-    <%= f.number_field :upvotes %>
-  </div>
-  <div class="field">
-    <%= f.label :score %><br>
-    <%= f.number_field :score %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
+
 <% end %>

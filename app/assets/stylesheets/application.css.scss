@@ -3,7 +3,52 @@
 @import "feed";
 @import "welcome";
 @import "posts";
+@import "font-awesome";
+@import "bootstrap-social";
+
 
 .avatar-small {
   border-radius: 100%;
 }
+
+.second-nav {
+  margin-top: -22px;
+  background-color: #f1f1f1;
+  border: none;
+  min-height: 70px;
+ }
+
+ .navbar-static-bottom {
+    margin: 0;
+    width: 100%;
+    border: none;
+ }
+
+ .full-width {
+  width: 100%;
+ }
+
+#share-link-main-group {
+  margin: 0 15px;
+}
+
+#second-nav-container {
+  padding: 20px;
+}
+
+#cancel-post {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: gray;
+  font-size: 2em;
+  background-color: white;
+  border-radius: 100%;
+  border: 4px white solid;
+}
+
+ .flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }

@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
     user
   end
 
-
   def assign_username(username=nil)
     username = username || concatenate_username(self.name)
     return self.username = username unless User.find_by username: username
