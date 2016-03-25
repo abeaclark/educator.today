@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 
-  before_save :create_vanity_link
+  # before_save :create_vanity_link
 
   belongs_to :user
 
@@ -17,16 +17,15 @@ class Post < ActiveRecord::Base
     vanity_link = page.host
     link = page.root_url
     title = page.best_title
-    description = page.description
+    summary = page.description
     best_image = page.images.best
     all_images = page.images.with_size
 
-    p vanity_link
-    p link
-    p title
-    p description
-    p best_image
-    p all_images
+    return {vanity_link: vanity_link,
+            link: link,
+            title: title,
+            summary: summary,
+            photo_url: best_image}
   end
 
 end

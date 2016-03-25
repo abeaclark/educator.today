@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20160323210458) do
     t.string   "title"
     t.string   "link"
     t.string   "vanity_link"
+    t.string   "photo_url"
     t.string   "summary"
     t.integer  "user_id"
     t.integer  "upvotes"

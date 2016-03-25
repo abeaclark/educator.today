@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.string :link
       t.string :vanity_link
+      t.string :photo_url
       t.string :summary
       t.integer :user_id
       t.integer :upvotes

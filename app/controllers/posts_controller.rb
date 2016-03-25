@@ -8,7 +8,8 @@ class PostsController < ApplicationController
   end
 
   def preview
-    @post = Post.new
+    temporary_attributes = Post.scrape_site(params[:link])
+    @post = Post.new(temporary_attributes)
     render :'_form.html.erb', layout: false if request.xhr?
 
   end
@@ -76,6 +77,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :link, :user_id, :upvotes, :score)
+      params.require(:post).permit(:title, :link, :user_id, :upvotes, :score, :summary, :photo_url)
     end
 end
