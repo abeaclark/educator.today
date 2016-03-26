@@ -15,6 +15,7 @@ require 'faker'
     Post.create({
       title: Faker::Hipster.sentence(5),
       link: 'http://www.abeclark.com',
+      photo_url: Faker::Avatar.image,
       summary: Faker::Hipster.paragraph(3),
       user_id: user.id,
       upvotes: rand(45),

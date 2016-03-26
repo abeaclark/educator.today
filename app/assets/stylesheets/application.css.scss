@@ -7,6 +7,21 @@
 @import "bootstrap-social";
 
 
+#spinner-gif {
+  width: 20px;
+  height: 20px;
+}
+
+.generating-post {
+  color: gray;
+  font-size: 1.5em;
+}
+
+#spinner-gif-container {
+  width: 100%;
+  text-align: center;
+}
+
 .avatar-small {
   border-radius: 100%;
 }

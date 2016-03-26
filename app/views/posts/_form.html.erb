@@ -16,10 +16,12 @@
 
 <div class="col-xs-12">
   <div id="new-post-form" class="thumbnail">
-    <img class="pull-right" src="<%= @post.photo_url %>" alt="...">
+    <div class="pull-right post-image-holder flex">
+      <img class="post-image" src="<%= @post.photo_url %>" alt="...">
+    </div>
     <div class="caption caption-edit">
-      <h3 class="full-width" ><%= f.text_field :title, :placeholder => "Title", :class => "form-control" %></h3>
-      <p><%= text_area(:post, :summary, cols: 40, rows: 4, :placeholder => "Summary Text", :class => "form-control") %></p>
+      <h3 class="full-width" ><%= f.text_field :title, :placeholder => "Title", :class => "post-form-title" %></h3>
+      <p><%= text_area(:post, :summary, cols: 40, rows: 4, :placeholder => "Summary Text", :class => "post-form-summary") %></p>
 
       <p><small><em><%= @post.vanity_link%></em></small></p>
     </div>

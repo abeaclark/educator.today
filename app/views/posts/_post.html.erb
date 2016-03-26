@@ -1,16 +1,16 @@
 <div class="col-xs-12">
   <div class="thumbnail">
-    <a href="<%=post.link%>">
+    <a href="<%=post.link%>" target="_blank">
       <div class="pull-right post-image-holder flex">
         <img class="post-image" src="<%= post.photo_url %>" alt="...">
       </div>
     </a>
     <div class="caption">
-      <a href="<%=post.link%>"><h3><%=post.title%></h3></a>
+      <a href="<%=post.link%>" target="_blank"><h3><%=post.title%></h3></a>
       <p><%= truncate(strip_tags(post.summary), length: 250) %></p>
       <p><small><em><%= post.vanity_link %>  |  <%= time_ago_in_words(post.timestamp) %></em></small></p>
       <div class="meta-bar">
-        <a><span class="glyphicon glyphicon-thumbs-up"></span></a> <%= post.score%>pts
+        <a><span post_id="<%= post.id %>" class="glyphicon glyphicon-thumbs-up like-button"></span></a> <span class="score-number"><%= post.score%></span>pts
       </div>
     </div>
   </div>

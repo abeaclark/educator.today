@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
   def self.scrape_site(url)
     page = MetaInspector.new(url)
     vanity_link = page.host
-    link = page.root_url
+    link = url
     title = page.best_title
     summary = page.description
     best_image = page.images.best

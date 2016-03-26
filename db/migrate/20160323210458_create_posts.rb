@@ -7,8 +7,8 @@ class CreatePosts < ActiveRecord::Migration
       t.string :photo_url
       t.string :summary
       t.integer :user_id
-      t.integer :upvotes
-      t.integer :score
+      t.integer :upvotes, :default => 0
+      t.integer :score, :default => 0
 
       t.timestamps null: false
     end

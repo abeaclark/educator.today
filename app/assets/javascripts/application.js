@@ -19,12 +19,15 @@
 
 $(function(){
 
+  // Functionality for post preview
   $('#preview-post-button').on( "click", function() {
     console.log('click')
-    var link = $('#link-input').val()
+    var link = $('#link-input').val();
+    $('#share-link-main-group').toggle();
+    $('#second-nav-container').append("<div id='spinner-gif-container'><img id='spinner-gif' src='ajax-loader.gif'><span class='generating-post'> Generating Post</span></div>");
+
     $.get( "/posts/preview", { link: link}, function(response){
-      console.log(response)
-      $('#share-link-main-group').toggle()
+      $('#spinner-gif-container').remove();
       $('#second-nav-container').append(response)
       // Add x button at top of new post to cancel
       $('#new-post-form').append('<span id="cancel-post" class="fa fa-times-circle-o"></span>')
@@ -34,8 +37,24 @@ $(function(){
         $("#new-post-form").remove();
       });
     });
+  });
+
+  // Functionality for like button
+  $('.like-button').on( "click", function() {
+    console.log('like')
+    var postID = $(this).attr('post_id');
+    var score = $(this).closest('.meta-bar').find('.score-number')
+    console.log(score.text())
+    score.text(incrementVote(score.text()))
+
+    $.post( "/posts/like", {post_id: postID}, function(res) {
+      console.log(res)
+    });
 
   });
 
-
+  var incrementVote = function(voteCountAsString){
+    currentCount = parseInt(voteCountAsString)
+    return String(currentCount + 1);
+  }
 })

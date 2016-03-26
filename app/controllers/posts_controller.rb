@@ -9,9 +9,13 @@ class PostsController < ApplicationController
 
   def preview
     temporary_attributes = Post.scrape_site(params[:link])
-    @post = Post.new(temporary_attributes)
-    render :'_form.html.erb', layout: false if request.xhr?
-
+    if temporary_attributes
+      @post = Post.new(temporary_attributes)
+      render :'_form.html.erb', layout: false if request.xhr?
+    else
+      flash[:warning] = "Please enter a valid URL"
+      redirect '/'
+    end
   end
 
 
