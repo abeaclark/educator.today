@@ -20,7 +20,7 @@ require 'faker'
       summary: Faker::Hipster.paragraph(3),
       user_id: user.id,
       upvotes: rand(45),
-      score: rand(45)
+      score: 0
     })
 
   end

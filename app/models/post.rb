@@ -12,7 +12,15 @@ class Post < ActiveRecord::Base
     self.vanity_link = URI.parse(self.link).host
   end
 
+  def update_score
+    points = self.upvotes
+    hours_elapsed = (Time.zone.now - self.created_at) / 3600
+    p hours_elapsed
+    gravity = 1.8
 
+    score = (points) / (hours_elapsed + 2)**gravity
+    self.score = score
+  end
 
   def self.scrape_site(url)
     page = MetaInspector.new(url)

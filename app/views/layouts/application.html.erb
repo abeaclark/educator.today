@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TeacherNews</title>
+  <title>teachers.today</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse first-nav">
   <div class="container">
     <div class="navbar-header">
-      <%= link_to 'Teacher News', root_path, class: 'navbar-brand' %>
+      <a href="/" class='navbar-brand'>
+        <%= image_tag "teachers-today.png", alt: 'teachers.today', class: 'main-logo' %>
+      </a>
     </div>
     <div id="navbar">
       <% if current_user %>
@@ -20,7 +22,7 @@
             <%= image_tag current_user.image_url, alt: current_user.name, class: 'avatar-small', id: 'avatar-dropdown', :"type" => 'button', :"data-toggle" => 'dropdown', :"aria-haspopup" => 'true', :'aria-expanded' => 'false' %>
 
             <ul class="dropdown-menu" aria-labelledby="avatar-dropdown">
-              <li><%= link_to 'My Profile', 'users/me' %></li>
+              <li><%= link_to 'My Profile', 'users/' + current_user.username %></li>
               <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
             </ul>
 

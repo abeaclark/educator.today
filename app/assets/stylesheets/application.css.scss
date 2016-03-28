@@ -26,8 +26,19 @@
 .avatar-small {
   border-radius: 100%;
   height: 50px;
-  width: 50px;
+  margin-top: 15px;
 }
+
+.main-logo {
+  height: 50px;
+}
+
+.first-nav {
+  background-color: white;
+  border: none;
+  min-height: 90px;
+ }
+
 
 .second-nav {
   margin-top: -22px;
