@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 
-  # before_save :create_vanity_link
+  before_save :add_username
 
   belongs_to :user
 
@@ -12,10 +12,12 @@ class Post < ActiveRecord::Base
     self.vanity_link = URI.parse(self.link).host
   end
 
+
+
   def self.scrape_site(url)
     page = MetaInspector.new(url)
     vanity_link = page.host
-    link = url
+    link = page.url
     title = page.best_title
     summary = page.description
     best_image = page.images.best
@@ -26,6 +28,12 @@ class Post < ActiveRecord::Base
             title: title,
             summary: summary,
             photo_url: best_image}
+  end
+
+  private
+
+  def add_username
+    self.username = User.find(self.user_id).username
   end
 
 end

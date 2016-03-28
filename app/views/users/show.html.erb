@@ -1,0 +1,18 @@
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <img class="avatar-small" src=<%= @user.image_url %> >
+
+      <span><%= @user.name %> | </span>
+      <span>Total posts: <%= @posts.count %> | </span>
+      <span>Points earned: TBU |</span>
+      <span>Points per post: TBU</span>
+  </div>
+</div>
+
+<hr>
+
+<div id="my-posts">
+  <%= render @posts.order(created_at: :desc) %>
+</div>
+

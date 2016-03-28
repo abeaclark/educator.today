@@ -3,6 +3,7 @@
 @import "feed";
 @import "welcome";
 @import "posts";
+@import "users";
 @import "font-awesome";
 @import "bootstrap-social";
 
@@ -24,6 +25,8 @@
 
 .avatar-small {
   border-radius: 100%;
+  height: 50px;
+  width: 50px;
 }
 
 .second-nav {

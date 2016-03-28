@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160323210458) do
     t.string   "photo_url"
     t.string   "summary"
     t.integer  "user_id"
+    t.string   "username"
     t.integer  "upvotes",     default: 0
     t.integer  "score",       default: 0
     t.datetime "created_at",              null: false

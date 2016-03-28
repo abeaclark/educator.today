@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   resources :posts
 
   get '/users/me', to: 'users#me'
-  get '/users/:username', to: 'users#profile'
+  get '/users/:username', to: 'users#show'
 
 end
