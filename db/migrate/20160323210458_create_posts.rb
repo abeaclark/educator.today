@@ -10,6 +10,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :username
       t.integer :upvotes, :default => 0
       t.integer :score, :default => 0
+      t.boolean :current_user_voted # should always be nil in db
 
       t.timestamps null: false
     end

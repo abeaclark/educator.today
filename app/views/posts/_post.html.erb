@@ -14,7 +14,7 @@
         <a href='/users/<%=post.username%>'><%=post.username%></a>
       </em></small></p>
       <div class="meta-bar">
-        <a><span post_id="<%= post.id %>" class="glyphicon glyphicon-thumbs-up like-button"></span></a> <span class="score-number"><%= post.upvotes%></span>pts
+        <a><span post_id="<%= post.id %>" class="glyphicon glyphicon-thumbs-up like-button <%= 'already-liked' if post.current_user_voted %>"></span></a> <span class="score-number"><%= post.upvotes %></span>pts
       </div>
     </div>
   </div>
