@@ -1,7 +1,7 @@
 $(function(){
 
   // Functionality for post preview
-  $('#preview-post-button').on( "click", function() {
+  $(document).on( "click", '#preview-post-button', function() {
     console.log('click')
     var link = $('#link-input').val();
     $('#share-link-main-group').toggle();
@@ -21,7 +21,7 @@ $(function(){
   });
 
   // Functionality for like button
-  $('.like-button').on( "click", function() {
+  $(document).on( "click",'.like-button', function() {
     if ($(this).hasClass('already-liked')) {
       console.log('unliked');
       var postID = $(this).attr('post_id');
@@ -31,9 +31,15 @@ $(function(){
       var score = $(this).closest('.meta-bar').find('.score-number')
       score.text(decrementVote(score.text()))
 
-      $.post( "/votes/delete", {post_id: postID}, function(res) {
-        console.log(res)
-      });
+      var delete_route = "posts/" + postID + "/votes"
+
+      $.ajax({
+            url: delete_route,
+            type: 'DELETE',
+            success: function(result) {
+              console.log(result)
+            }
+        });
 
     } else {
       console.log('like');
@@ -44,7 +50,9 @@ $(function(){
       var score = $(this).closest('.meta-bar').find('.score-number')
       score.text(incrementVote(score.text()))
 
-      $.post( "/posts/like", {post_id: postID}, function(res) {
+      var new_vote_route = "posts/" + postID + "/votes"
+
+      $.post( new_vote_route, function(res) {
         console.log(res)
       });
     }

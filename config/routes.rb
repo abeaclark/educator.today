@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get 'posts/preview', to: 'posts#preview'
+
   resources :posts
+
+  post '/posts/:post_id/votes/', to: 'votes#create'
+  delete '/posts/:post_id/votes/', to: 'votes#destroy'
 
   get '/users/:username', to: 'users#show'
 
