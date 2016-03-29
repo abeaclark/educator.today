@@ -21,7 +21,7 @@
       <img class="post-image" src="<%= @post.photo_url %>" alt="...">
     </div>
     <div class="caption caption-edit">
-      <h3 class="full-width" ><%= f.text_field :title, :placeholder => "Title", :class => "post-form-title" %></h3>
+      <h3 class="full-width" ><%= text_area(:post, :title, cols: 25, rows: 2, :placeholder => "Title", :class => "post-form-title") %></h3>
       <p><%= text_area(:post, :summary, cols: 40, rows: 4, :placeholder => "Summary Text", :class => "post-form-summary") %></p>
 
       <p><small><em><%= @post.vanity_link%></em></small></p>
