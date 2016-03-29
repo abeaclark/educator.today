@@ -12,9 +12,7 @@ class Bot < ApplicationController
     links.each do |link|
       attributes = Post.scrape_site(link)
       attributes[:user_id] = user_id
-      p attributes
       post = Post.create(attributes)
-      p post
     end
   end
 
@@ -22,8 +20,6 @@ class Bot < ApplicationController
   def scrape_relevant_links
     landing_page = MetaInspector.new(@base_url)
     links = landing_page.links.all
-    p 'landing page links all'
-    p links
     links = verify_regex(links)
     links = eliminate_duplicates(links)
     return links

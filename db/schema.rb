@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 20160329174749) do
     t.integer  "user_id"
     t.string   "username"
     t.integer  "upvotes",            default: 0
-    t.integer  "score",              default: 0
+    t.float    "score",              default: 0.0
     t.boolean  "current_user_voted"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "users", force: :cascade do |t|
