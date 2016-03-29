@@ -31,10 +31,12 @@
       <% else %>
         <div class="nav navbar-nav pull-right">
             <div class="btn success">
+              <button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#joinModal">
+                Join
+              </button>
               <button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#loginModal">
                 Login
               </button>
-
             </div>
         </div>
       <% end %>
@@ -71,16 +73,40 @@
   </div>
 </nav>
 
-<!-- LOGIN MODAL -->
+<!-- Join MODAL -->
 <% unless current_user %>
-  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
+  <div class="modal fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="joinModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
+        <div class="modal-header">
+          Thanks for joining! Choose a network to login:
+        </div>
         <div class="modal-body">
           <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook">
             <span class="fa fa-facebook"></span> Sign in with Facebook
           </a>
           <a href="/auth/google" class="btn btn-block btn-social btn-google">
+            <span class="fa fa-google"></span> Sign in with Google
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<!-- login MODAL -->
+<% unless current_user %>
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          Welcome back!
+        </div>
+        <div class="modal-body">
+          <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook">
+            <span class="fa fa-facebook"></span> Sign in with Facebook
+          </a>
+          <a href="/auth/google-login" class="btn btn-block btn-social btn-google">
             <span class="fa fa-google"></span> Sign in with Google
           </a>
         </div>

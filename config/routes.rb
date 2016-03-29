@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-
   root 'posts#index'
 
   #Oauth / Login / Logout
@@ -12,7 +10,6 @@ Rails.application.routes.draw do
   get 'posts/preview', to: 'posts#preview'
   resources :posts
 
-  get '/users/me', to: 'users#me'
   get '/users/:username', to: 'users#show'
 
 end
