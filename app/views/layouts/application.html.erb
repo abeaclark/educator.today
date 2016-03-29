@@ -10,23 +10,27 @@
 <nav class="navbar navbar-inverse first-nav">
   <div class="container">
     <div class="navbar">
+      <div class="pull-right">
+        <% if current_user %>
+          <%= image_tag current_user.image_url, alt: current_user.name, class: 'avatar-small pull-right', id: 'avatar-dropdown', :"type" => 'button', :"data-toggle" => 'collapse', :"data-target" => '#avatar-menu' %>
 
-      <% if current_user %>
-        <div class="pull-right">
-          <%= image_tag current_user.image_url, alt: current_user.name, class: 'avatar-small pull-right', id: 'avatar-dropdown', :"type" => 'button', :"data-toggle" => 'dropdown', :"aria-haspopup" => 'true', :'aria-expanded' => 'false' %>
-
-          <ul class="dropdown-menu pull-right" aria-labelledby="avatar-dropdown">
+          <ul class="dropdown-menu pull-right" id="avatar-menu">
             <li class=""><%= link_to 'My Profile', 'users/' + current_user.username %></li>
+            <li role="separator" class="divider"></li>
             <li class=""><%= link_to 'Log Out', logout_path, method: :delete %></li>
           </ul>
-        </div>
-      <% else %>
-        <div class="btn success pull-right">
-          <button type="button" class="btn-lg btn-primary btn login-button" data-toggle="modal" data-target="#loginModal">
+        <% else %>
+          <button type="button" class="btn-lg btn-primary btn login-button pull-right" data-toggle="modal" data-target="#loginModal">
             Login
           </button>
-        </div>
-      <% end %>
+        <% end %>
+        <span class=" btn-lg btn-primary glyphicon glyphicon-th-list pull-right sort-button" id='sort-dropdown' type:'button' data-target="#sort-menu" data-toggle="collapse"></span>
+        <ul class="dropdown-menu pull-right" id="sort-menu" role="menu">
+            <li class=""><a href="/?sort=rank">Highest Rank</a></li>
+            <li class=""><a href="/?sort=newest">Newest</a></li>
+        </ul>
+      </div>
+
 
       <a href="/" class='navbar-brand'>
         <%= image_tag "educator-today.png", alt: 'educator.today', class: 'main-logo' %>

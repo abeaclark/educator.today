@@ -4,7 +4,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.paginate(page: params[:page], per_page: 15).order(score: :desc)
+    case params[:sort]
+    when 'newest'
+      @posts = Post.paginate(page: params[:page], per_page: 15).order(created_at: :desc)
+    else
+      @posts = Post.paginate(page: params[:page], per_page: 15).order(score: :desc)
+    end
+
     if current_user
       @votes = current_user.votes
       @posts.map do |post|
