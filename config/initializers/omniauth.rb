@@ -1,6 +1,6 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: 'public_profile, email'
-  provider :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], scope: 'profile, email', image_aspect_ratio: 'square', image_size: 100, access_type: 'online', name: 'google'
 
-  provider :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], scope: 'profile, prompt: none, email', image_aspect_ratio: 'square', image_size: 100, access_type: 'online', name: 'google-login'
+  provider :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], scope: 'profile, email', image_aspect_ratio: 'square', image_size: 100, access_type: 'online', name: 'google', prompt: nil
+
 end

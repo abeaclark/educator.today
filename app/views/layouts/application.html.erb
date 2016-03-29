@@ -9,37 +9,28 @@
 <body>
 <nav class="navbar navbar-inverse first-nav">
   <div class="container">
-    <div class="navbar-header">
+    <div class="navbar">
+
+      <% if current_user %>
+        <div class="pull-right">
+          <%= image_tag current_user.image_url, alt: current_user.name, class: 'avatar-small pull-right', id: 'avatar-dropdown', :"type" => 'button', :"data-toggle" => 'dropdown', :"aria-haspopup" => 'true', :'aria-expanded' => 'false' %>
+
+          <ul class="dropdown-menu pull-right" aria-labelledby="avatar-dropdown">
+            <li class=""><%= link_to 'My Profile', 'users/' + current_user.username %></li>
+            <li class=""><%= link_to 'Log Out', logout_path, method: :delete %></li>
+          </ul>
+        </div>
+      <% else %>
+        <div class="btn success">
+          <button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#loginModal">
+            Login
+          </button>
+        </div>
+      <% end %>
+
       <a href="/" class='navbar-brand'>
         <%= image_tag "teachers-today.png", alt: 'teachers.today', class: 'main-logo' %>
       </a>
-    </div>
-    <div id="navbar">
-      <% if current_user %>
-        <div class="nav navbar-nav pull-right">
-          <div class="dropdown">
-
-            <%= image_tag current_user.image_url, alt: current_user.name, class: 'avatar-small', id: 'avatar-dropdown', :"type" => 'button', :"data-toggle" => 'dropdown', :"aria-haspopup" => 'true', :'aria-expanded' => 'false' %>
-
-            <ul class="dropdown-menu" aria-labelledby="avatar-dropdown">
-              <li><%= link_to 'My Profile', 'users/' + current_user.username %></li>
-              <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
-            </ul>
-
-          </div>
-        </div>
-      <% else %>
-        <div class="nav navbar-nav pull-right">
-            <div class="btn success">
-              <button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#joinModal">
-                Join
-              </button>
-              <button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#loginModal">
-                Login
-              </button>
-            </div>
-        </div>
-      <% end %>
     </div>
   </div>
 </nav>
@@ -73,48 +64,32 @@
   </div>
 </nav>
 
-<!-- Join MODAL -->
-<% unless current_user %>
-  <div class="modal fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="joinModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          Thanks for joining! Choose a network to login:
-        </div>
-        <div class="modal-body">
-          <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook">
-            <span class="fa fa-facebook"></span> Sign in with Facebook
-          </a>
-          <a href="/auth/google" class="btn btn-block btn-social btn-google">
-            <span class="fa fa-google"></span> Sign in with Google
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
-
 <!-- login MODAL -->
 <% unless current_user %>
   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          Welcome back!
+        <div class="modal-header flex">
+          <%= image_tag "teachers-today.png", alt: 'teachers.today', class: 'main-logo' %>
         </div>
-        <div class="modal-body">
-          <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook">
-            <span class="fa fa-facebook"></span> Sign in with Facebook
-          </a>
-          <a href="/auth/google-login" class="btn btn-block btn-social btn-google">
-            <span class="fa fa-google"></span> Sign in with Google
-          </a>
+        <div class="modal-header flex">
+          <h3>Please sign-in:</h3>
+        </div>
+
+        <div class="modal-body log-in flex">
+          <div>
+            <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook">
+              <span class="fa fa-facebook"></span> Sign in with Facebook
+            </a>
+            <a href="/auth/google" class="btn btn-block btn-social btn-google">
+              <span class="fa fa-google"></span> Sign in with Google
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 <% end %>
-
 
 </body>
 </html>
