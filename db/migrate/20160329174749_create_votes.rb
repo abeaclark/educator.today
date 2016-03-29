@@ -4,5 +4,6 @@ class CreateVotes < ActiveRecord::Migration
       t.integer :user_id
       t.integer :post_id
     end
+    add_index :votes, [:user_id, :post_id], :unique => true
   end
 end

@@ -24,6 +24,7 @@ $(function(){
   $(document).on( "click",'.like-button', function() {
     if ($(this).hasClass('already-liked')) {
       console.log('unliked');
+
       var postID = $(this).attr('post_id');
 
       $(this).removeClass('already-liked');
@@ -44,7 +45,7 @@ $(function(){
     } else {
       console.log('like');
       var postID = $(this).attr('post_id');
-
+      that = $(this)
       $(this).addClass('already-liked');
 
       var score = $(this).closest('.meta-bar').find('.score-number')
@@ -54,6 +55,18 @@ $(function(){
 
       $.post( new_vote_route, function(res) {
         console.log(res)
+        if (res == "login") {
+
+          // Rollback DOM changes
+          that.removeClass('already-liked');
+          score.text(decrementVote(score.text()))
+
+          // Prompt login with modal
+          $('#loginModal').modal('toggle')
+
+        }
+
+
       });
     }
 

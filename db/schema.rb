@@ -50,4 +50,6 @@ ActiveRecord::Schema.define(version: 20160329174749) do
     t.integer "post_id"
   end
 
+  add_index "votes", ["user_id", "post_id"], name: "index_votes_on_user_id_and_post_id", unique: true, using: :btree
+
 end

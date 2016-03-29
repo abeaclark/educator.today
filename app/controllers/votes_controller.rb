@@ -2,6 +2,8 @@ class VotesController < ApplicationController
 
 
   def create
+    return render plain: 'login' unless current_user
+
     @vote = Vote.new(vote_params)
     @vote.user_id = current_user.id
     update_post
