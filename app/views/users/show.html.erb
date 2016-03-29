@@ -4,14 +4,20 @@
     <div class="col-sm-4 flex">
       <img class="avatar-profile" src=<%= @user.image_url %> >
     </div>
-    <div class="col-sm-4 user-info">
-      <p><%= @user.username %> </p>
-      <p><%= @user.name %> </p>
+    <div class="col-sm-4 user-info flex">
+      <div class="center">
+        <p>Name: <%= @user.name %> </p>
+        <p>Username: <%= @user.username %> </p>
+        <p>Contributor Since: <%= @user.created_at.year %> </p>
+
+      </div>
     </div>
-    <div class="col-sm-4 user-stats">
-      <p>Total posts: <%= @posts.count %> </p>
-      <p>Points earned: TBU </p>
-      <p>Points per post: TBU</p>
+    <div class="col-sm=-4 user-stats flex">
+      <div class="center">
+        <p>Total posts: <%= @posts.count %> </p>
+        <p>Lifetime Points: <%= @points %> </p>
+        <p>Post Quality: <%= @points_per_post %></p>
+      </div>
     </div>
 
 
@@ -20,8 +26,12 @@
 </div>
 
 <hr>
+  <div id="my-posts">
+    <% if @posts.length > 0 %>
+      <%= render @posts.order(created_at: :desc) %>
+    <% else %>
+      <h3 class=""> You haven't shared any links yet! </h3>
+    <% end %>
+  </div>
 
-<div id="my-posts">
-  <%= render @posts.order(created_at: :desc) %>
-</div>
 

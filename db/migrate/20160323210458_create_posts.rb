@@ -9,7 +9,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :user_id
       t.string :username
       t.integer :upvotes, :default => 0
-      t.integer :score, :default => 0
+      t.float :score, :default => 0
       t.boolean :current_user_voted # should always be nil in db
 
       t.timestamps null: false

@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
 
   def update_score
     points = self.upvotes
-    hours_elapsed = (Time.zone.now - self.created_at) / 3600
+    hours_elapsed = (Time.now - self.created_at) / 3600
     p hours_elapsed
     gravity = 1.8
 

@@ -26,6 +26,7 @@ class VotesController < ApplicationController
     def update_post
       post = @vote.post
       post.upvotes += 1
+      post.update_score
       post.save
     end
 

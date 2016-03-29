@@ -8,7 +8,7 @@ class Bot < ApplicationController
 
   def create_posts
     links = scrape_relevant_links
-    user_id = User.find_or_create_by(username: @username).id
+    user_id = User.find_or_create_by(username: @username, provider: 'admin', image_url: 'https://media.licdn.com/media/p/8/005/096/07c/10d051c.jpg', uid: '1').id
     links.each do |link|
       attributes = Post.scrape_site(link)
       attributes[:user_id] = user_id

@@ -1,4 +1,5 @@
 require 'faker'
+count = 1
 
 10.times do
   user = User.create({
@@ -12,17 +13,19 @@ require 'faker'
   })
 
   4.times do
-    Post.create({
+    post = Post.create({
       title: Faker::Hipster.sentence(5),
       link: 'http://www.abeclark.com',
       vanity_link: 'abeclark.com',
       photo_url: Faker::Avatar.image,
       summary: Faker::Hipster.paragraph(3),
       user_id: user.id,
-      upvotes: rand(45),
+      upvotes: count,
       score: 0
     })
-
+    count += 1
+    post.update_score
+    post.save
   end
 
 end

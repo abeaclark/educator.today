@@ -7,18 +7,12 @@ class PostsController < ApplicationController
     @posts = Post.paginate(page: params[:page], per_page: 15).order(score: :desc)
     if current_user
       @votes = current_user.votes
-      puts "votes"
-      puts "------------------"
-      p @votes
       @posts.map do |post|
-
         @votes.each do |vote|
-          p "vote"
-          p vote
           post.current_user_voted = true if vote.post_id == post.id
         end
-        p 'post'
-        p post
+          post.update_score
+          post.save
       end
     end
   end
