@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>teachers.today</title>
+  <title>educator.today</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -21,15 +21,15 @@
           </ul>
         </div>
       <% else %>
-        <div class="btn success">
-          <button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#loginModal">
+        <div class="btn success pull-right">
+          <button type="button" class="btn-lg btn-primary btn login-button" data-toggle="modal" data-target="#loginModal">
             Login
           </button>
         </div>
       <% end %>
 
       <a href="/" class='navbar-brand'>
-        <%= image_tag "teachers-today.png", alt: 'teachers.today', class: 'main-logo' %>
+        <%= image_tag "educator-today.png", alt: 'educator.today', class: 'main-logo' %>
       </a>
     </div>
   </div>
@@ -70,7 +70,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header flex">
-          <%= image_tag "teachers-today.png", alt: 'teachers.today', class: 'main-logo' %>
+          <%= image_tag "educator-today.png", alt: 'teachers.today', class: 'main-logo' %>
         </div>
         <div class="modal-header flex">
           <h3>Please sign-in:</h3>

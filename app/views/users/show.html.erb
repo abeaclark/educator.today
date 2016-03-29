@@ -1,12 +1,21 @@
 
 <div class="panel panel-default">
   <div class="panel-body">
-    <img class="avatar-small" src=<%= @user.image_url %> >
+    <div class="col-sm-4 flex">
+      <img class="avatar-profile" src=<%= @user.image_url %> >
+    </div>
+    <div class="col-sm-4 user-info">
+      <p><%= @user.username %> </p>
+      <p><%= @user.name %> </p>
+    </div>
+    <div class="col-sm-4 user-stats">
+      <p>Total posts: <%= @posts.count %> </p>
+      <p>Points earned: TBU </p>
+      <p>Points per post: TBU</p>
+    </div>
 
-      <span><%= @user.name %> | </span>
-      <span>Total posts: <%= @posts.count %> | </span>
-      <span>Points earned: TBU |</span>
-      <span>Points per post: TBU</span>
+
+
   </div>
 </div>
 

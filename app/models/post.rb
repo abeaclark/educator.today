@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   before_save :add_username
 
   belongs_to :user
+  has_many :votes
 
   def timestamp
     created_at.strftime('%d %B %Y %H:%M:%S')
