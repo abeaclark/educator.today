@@ -19,7 +19,7 @@ gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'bootstrap-will_paginate'
 gem 'will_paginate'
-gem 'metainspector', :git => 'git://github.com/jaimeiniesta/metainspector'
+gem 'metainspector'
 gem "font-awesome-rails"
 gem "whenever", :require => false
 
