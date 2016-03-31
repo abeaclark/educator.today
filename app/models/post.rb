@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
 
   before_save :add_username
+  before_save :clear_liked_status
 
   belongs_to :user
   has_many :votes
@@ -40,6 +41,10 @@ class Post < ActiveRecord::Base
   end
 
   private
+
+  def clear_liked_status
+    self.current_user_voted = nil
+  end
 
   def add_username
     self.username = User.find(self.user_id).username
