@@ -14,11 +14,11 @@ class PostsController < ApplicationController
     if current_user
       @votes = current_user.votes
       @posts.map do |post|
+        post.update_score
+        post.save
         @votes.each do |vote|
           post.current_user_voted = true if vote.post_id == post.id
         end
-          post.update_score
-          post.save
       end
     end
   end
