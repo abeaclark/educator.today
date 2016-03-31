@@ -6,7 +6,9 @@
       </div>
     </a>
     <div class="caption">
-      <a href="<%=post.link%>" target="_blank"><h3><%=post.title%></h3></a>
+      <h3>
+        <a href="<%=post.link%>" target="_blank"><%=post.title%></a>
+      </h3>
       <p><%= truncate(strip_tags(post.summary), length: 250) %></p>
       <p><small><em>
         <%= post.vanity_link %>  |
@@ -14,7 +16,8 @@
         <a href='/users/<%=post.username%>'><%=post.username%></a>
       </em></small></p>
       <div class="meta-bar">
-        <a><span post_id="<%= post.id %>" class="glyphicon glyphicon-thumbs-up like-button <%= 'already-liked' if post.current_user_voted %>"></span></a> <span class="score-number"><%= post.upvotes %></span>pts
+        <a href="#"><span class="small glyphicon glyphicon-share-alt"></span></a>
+        <a href="#"><span post_id="<%= post.id %>" class="glyphicon glyphicon-thumbs-up like-button <%= 'already-liked' if post.current_user_voted %>"></span></a> <span class="score-number"><%= post.upvotes %></span>pts
       </div>
     </div>
   </div>

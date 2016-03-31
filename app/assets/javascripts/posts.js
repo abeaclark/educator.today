@@ -1,3 +1,12 @@
+// Set up FB api for sharing
+$.ajaxSetup({ cache: true });
+  $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+    FB.init({
+      appId: '1679784358956206',
+      version: 'v2.5' // or v2.0, v2.1, v2.2, v2.3
+    });
+  });
+
 $(function(){
 
   // Functionality for post preview
@@ -81,4 +90,18 @@ $(function(){
     currentCount = parseInt(voteCountAsString)
     return String(currentCount - 1);
   }
+
+  //  FB API Listeners
+
+  $(document).on( "click",'.glyphicon-share-alt', function() {
+
+    var linkToShare = $(this).closest('.thumbnail').find('h3').find('a').attr('href')
+
+    FB.ui({
+      method: 'share',
+      href: linkToShare,
+    }, function(response){});
+
+  });
+
 })
