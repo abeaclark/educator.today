@@ -10,7 +10,9 @@ $.ajaxSetup({ cache: true });
 $(function(){
 
   // Functionality for post preview
-  $(document).on( "click", '#preview-post-button', function() {
+  $(document).on( "click", '#preview-post-button', function(e) {
+    e.preventDefault()
+
     console.log('click')
     var link = $('#link-input').val();
     $('#share-link-main-group').toggle();
@@ -30,7 +32,9 @@ $(function(){
   });
 
   // Functionality for like button
-  $(document).on( "click",'.like-button', function() {
+  $(document).on( "click",'.like-button', function(e) {
+    e.preventDefault()
+
     if ($(this).hasClass('already-liked')) {
       console.log('unliked');
 
@@ -93,8 +97,8 @@ $(function(){
 
   //  FB API Listeners
 
-  $(document).on( "click",'.glyphicon-share-alt', function() {
-
+  $(document).on( "click",'.glyphicon-share-alt', function(e) {
+    e.preventDefault()
     var linkToShare = $(this).closest('.thumbnail').find('h3').find('a').attr('href')
 
     FB.ui({
